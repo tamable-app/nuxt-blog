@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   check:
-    name: Lint, type check, test and build
+    name: Lint, type check and build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,8 +26,6 @@ jobs:
       - run: npm run lint
 
       - run: npm run typecheck
-
-      - run: npm test
 
       # CI never holds the read key: the build reads recorded fixtures from a fake Tamable.
       - name: Build against the fake Tamable

@@ -14,6 +14,8 @@ It gives you:
 
 Pages are prerendered at build time. A small Node server handles only previews and the deploy webhook.
 
+Everything that talks to Tamable (the read API client, feeds, redirects, the webhook check and a fake Tamable for tests) comes from [@tamable/blog-kit](https://github.com/tamable-app/blog-kit), shared with the Next.js and Astro starters. This repo holds the Nuxt pages, components and styles.
+
 ## Quick start
 
 You need Node 22.22.3 or newer, or 24.15 or newer.
@@ -24,7 +26,7 @@ cp .env.example .env   # then fill it in, see below
 npm run dev            # http://localhost:3000
 ```
 
-To try it without a Tamable workspace, run the fake API that serves the test fixtures:
+To try it without a Tamable workspace, run the fake API, which serves a few made-up posts:
 
 ```sh
 npm run fake-tamable &
@@ -97,11 +99,10 @@ On Laravel Forge with PM2, give Node the absolute path to the environment file. 
 |---|---|
 | `npm run lint` | ESLint |
 | `npm run typecheck` | `vue-tsc` through Nuxt |
-| `npm test` | Vitest |
 | `npm run build` | Prerenders the site into `.output` |
 | `npm start` | Serves `.output` (preview and webhook routes included) |
 
-CI runs lint, type check and tests, then builds against the fake Tamable, so it never needs a read key.
+CI runs lint and type check, then builds against the fake Tamable, so it never needs a read key.
 
 ## License
 
