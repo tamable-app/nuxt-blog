@@ -1,0 +1,30 @@
+{
+  "name": "tamable-nuxt-blog",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^22.22.3 || >=24.15.0"
+  },
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "start": "node .output/server/index.mjs",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "typecheck": "nuxt typecheck",
+    "test": "vitest run",
+    "fake-tamable": "node scripts/fake-tamable.mjs"
+  },
+  "dependencies": {
+    "@nuxt/fonts": "^1.1.0",
+    "nuxt": "^4.6.2"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.17.0",
+    "@types/node": "^24.19.2",
+    "eslint": "^10.13.0",
+    "typescript": "~5.9",
+    "vitest": "^5.0.5",
+    "vue-tsc": "^3.3.13"
+  }
+}
