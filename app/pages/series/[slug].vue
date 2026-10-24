@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { isoDay } from '#shared/utils/dates'
+import { isoDay } from '@tamable/blog-kit'
 
 const route = useRoute()
 const slug = String(route.params.slug)

@@ -1,5 +1,5 @@
 import type { H3Event } from 'h3'
-import { handleDeploy, MAX_BODY_BYTES } from '../utils/webhook'
+import { handleDeploy, MAX_BODY_BYTES, SIGNATURE_HEADER } from '@tamable/blog-kit/webhook'
 
 // Tamable's deploy webhook: set Settings › Sites › Deploy webhook to https://<your site>/api/deploy.
 export default defineEventHandler(async (event) => {
@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event)
   const result = await handleDeploy({
     rawBody: body,
-    signature: getHeader(event, 'x-tamable-signature'),
+    signature: getHeader(event, SIGNATURE_HEADER),
     secret: config.tamableWebhookSecret,
     deployHookUrl: config.deployHookUrl,
   })

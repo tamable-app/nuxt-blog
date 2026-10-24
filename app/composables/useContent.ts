@@ -1,4 +1,4 @@
-import type { PostPage, PostSummary, Series, SeriesSummary, Tag } from '#shared/types/content'
+import type { PostPage, PostSummary, Series, SeriesSummary, Tag } from '@tamable/blog-kit'
 
 export function usePosts() {
   return useFetch<PostSummary[]>('/api/content/posts', { key: 'posts', default: () => [] })

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { PostSummary } from '#shared/types/content'
-import { isoDay, monthDay, year } from '#shared/utils/dates'
+import type { PostSummary } from '@tamable/blog-kit'
+import { isoDay, monthDay, year } from '@tamable/blog-kit'
 
 const props = defineProps<{
   posts: PostSummary[]

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { PostPage } from '#shared/types/content'
-import { isoDay } from '#shared/utils/dates'
+import type { PostPage } from '@tamable/blog-kit'
+import { isoDay } from '@tamable/blog-kit'
 
 defineProps<{ post: PostPage, preview?: boolean }>()
 

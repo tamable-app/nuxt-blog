@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { PostPage } from '#shared/types/content'
+import type { PostPage } from '@tamable/blog-kit'
 
 definePageMeta({ layout: 'preview' })
 

@@ -1,4 +1,4 @@
-import { sitemapEntries, sitemapXml } from '../utils/feeds'
+import { sitemapEntries, sitemapXml } from '@tamable/blog-kit'
 
 // The site's own pages; posts, tags and series come from Tamable.
 const PAGES = ['/', '/blog', '/series', '/about']

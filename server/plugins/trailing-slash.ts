@@ -1,4 +1,4 @@
-import { withoutTrailingSlash } from '../utils/redirects'
+import { withoutTrailingSlash } from '@tamable/blog-kit'
 
 // One address per page: /blog/ and /blog/x/ answer with a 301 to the address without the slash.
 // Added first in the stack, because prerendered pages are served before any middleware would run.

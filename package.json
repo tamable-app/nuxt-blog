@@ -12,11 +12,11 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "typecheck": "nuxt typecheck",
-    "test": "vitest run",
-    "fake-tamable": "node scripts/fake-tamable.mjs"
+    "fake-tamable": "fake-tamable"
   },
   "dependencies": {
     "@nuxt/fonts": "^1.1.0",
+    "@tamable/blog-kit": "^0.1.0",
     "nuxt": "^4.6.2"
   },
   "devDependencies": {
@@ -24,7 +24,6 @@
     "@types/node": "^24.19.2",
     "eslint": "^10.13.0",
     "typescript": "~5.9",
-    "vitest": "^5.0.5",
     "vue-tsc": "^3.3.13"
   }
 }

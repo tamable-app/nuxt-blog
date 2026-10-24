@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SeriesNav } from '#shared/types/content'
+import type { SeriesNav } from '@tamable/blog-kit'
 
 defineProps<{ nav: SeriesNav }>()
 </script>

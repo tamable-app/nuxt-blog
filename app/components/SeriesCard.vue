@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SeriesSummary } from '#shared/types/content'
+import type { SeriesSummary } from '@tamable/blog-kit'
 
 defineProps<{ series: SeriesSummary }>()
 </script>
