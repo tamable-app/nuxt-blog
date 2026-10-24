@@ -30,3 +30,4 @@ export const postSummaries = (event: H3Event): Promise<PostSummary[]> => content
 export const seriesSummaries = (event: H3Event): Promise<SeriesSummary[]> => content(event).seriesSummaries()
 export const seriesDetail = (event: H3Event, slug: string): Promise<Series | null> => content(event).seriesDetail(slug)
 export const postPage = (event: H3Event, slug: string): Promise<PostPage | null> => content(event).postPage(slug)
+export const previewPage = (event: H3Event, token: string): Promise<PostPage | null> => content(event).previewPage(token)
