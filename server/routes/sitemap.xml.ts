@@ -1,7 +1,7 @@
-import { sitemapEntries, sitemapXml } from '@tamable/blog-kit'
+import { BLOG_PATH, SERIES_PATH, sitemapEntries, sitemapXml } from '@tamable/blog-kit'
 
 // The site's own pages; posts, tags and series come from Tamable.
-const PAGES = ['/', '/blog', '/series', '/about']
+const PAGES = ['/', BLOG_PATH, SERIES_PATH, '/about']
 
 export default defineEventHandler(async (event) => {
   assertBuildTime()

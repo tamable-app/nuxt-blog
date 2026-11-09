@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { isoDay } from '@tamable/blog-kit'
+import { isoDay, SERIES_PATH } from '@tamable/blog-kit'
 
 const route = useRoute()
 const slug = String(route.params.slug)
@@ -21,7 +21,7 @@ useSeoMeta({
 <template>
   <div class="container listing">
     <p class="eyebrow">
-      <NuxtLink to="/series" class="crumb">Series</NuxtLink>
+      <NuxtLink :to="SERIES_PATH" class="crumb">Series</NuxtLink>
     </p>
     <h1 class="page-title">
       {{ s.title }}

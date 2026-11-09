@@ -1,16 +1,24 @@
 <script setup lang="ts">
+import { BLOG_PATH, SERIES_PATH } from '@tamable/blog-kit'
 import site from '~~/site.config'
 
 const route = useRoute()
 
+// Every blog page lives under /blog, so Blog stays current on series and tag pages too; Series is also
+// current on its own pages. aria-current says "page" only on the link's own address.
 const links = [
-  { label: 'Blog', to: '/blog', sections: ['/blog', '/tags'] },
-  { label: 'Series', to: '/series', sections: ['/series'] },
-  { label: 'About', to: '/about', sections: ['/about'] },
+  { label: 'Blog', to: BLOG_PATH },
+  { label: 'Series', to: SERIES_PATH },
+  { label: 'About', to: '/about' },
 ]
 
-function isCurrent(sections: string[]) {
-  return sections.some(section => route.path === section || route.path.startsWith(`${section}/`))
+function isCurrent(to: string) {
+  return route.path === to || route.path.startsWith(`${to}/`)
+}
+
+function ariaCurrent(to: string) {
+  if (route.path === to) return 'page'
+  return isCurrent(to) ? 'true' : undefined
 }
 </script>
 
@@ -25,8 +33,8 @@ function isCurrent(sections: string[]) {
         :key="link.to"
         :to="link.to"
         class="nav-link"
-        :class="{ current: isCurrent(link.sections) }"
-        :aria-current="isCurrent(link.sections) ? 'page' : undefined"
+        :class="{ current: isCurrent(link.to) }"
+        :aria-current="ariaCurrent(link.to)"
       >
         {{ link.label }}
       </NuxtLink>

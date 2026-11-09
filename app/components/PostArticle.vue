@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { PostPage } from '@tamable/blog-kit'
-import { isoDay } from '@tamable/blog-kit'
+import { isoDay, tagPath } from '@tamable/blog-kit'
 
 defineProps<{ post: PostPage, preview?: boolean }>()
 
@@ -30,7 +30,7 @@ onMounted(() => {
       <span v-else-if="preview">Not published yet</span>
       <span> · {{ post.readingMinutes }} min</span>
       <template v-for="tag in post.tags" :key="tag.slug">
-        <span> · </span><NuxtLink :to="`/tags/${tag.slug}`">{{ tag.name }}</NuxtLink>
+        <span> · </span><NuxtLink :to="tagPath(tag.slug)">{{ tag.name }}</NuxtLink>
       </template>
     </p>
     <h1 class="title">
