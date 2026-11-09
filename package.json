@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@nuxt/fonts": "^1.1.0",
-    "@tamable/blog-kit": "^0.1.0",
+    "@tamable/blog-kit": "^0.2.0",
     "nuxt": "^4.6.2"
   },
   "devDependencies": {
