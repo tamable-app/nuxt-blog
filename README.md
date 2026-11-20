@@ -5,10 +5,10 @@ A [Nuxt](https://nuxt.com) starter for a blog whose posts live in a [Tamable](ht
 It gives you:
 
 - Posts at `/blog/{slug}`, with tags, series, reading time, cover images and the SEO fields you set in Tamable (title, description, canonical URL, Open Graph, JSON-LD)
-- Tag pages at `/tags/{tag}` and series pages at `/series` and `/series/{slug}`
+- Tag pages at `/blog/tags/{tag}` and series pages at `/blog/series` and `/blog/series/{slug}`
 - Draft previews at `/preview/{token}`: never cached, never indexed
 - An RSS feed (`/rss.xml`), a sitemap and `robots.txt`
-- 301 redirects for posts you renamed in Tamable, and optionally for the addresses of an old Ghost blog
+- 301 redirects for posts you renamed in Tamable, for the old `/series` and `/tags` addresses, and optionally for the addresses of an old Ghost blog
 - A deploy webhook that checks Tamable's signature before asking your host to rebuild
 - Light and dark themes, both driven by CSS variables
 
@@ -43,6 +43,8 @@ In Tamable, go to **Settings › Sites** (you need to be a workspace owner) and 
 | Blog URL pattern | `/blog/{slug}` |
 | Preview URL pattern | `https://yourblog.com/preview/{token}` |
 | Deploy webhook | `https://yourblog.com/api/deploy` |
+
+Every blog page lives under `/blog`: posts at `/blog/{slug}`, series at `/blog/series/{slug}` and tags at `/blog/tags/{tag}`. Tamable never gives a post a slug that's a reserved word (`series`, `tags`, `tag`, `feed`, `rss`, `search`, `page` and a few more, listed in `RESERVED_SLUGS` in `@tamable/blog-kit`), so a post can't collide with a section. Older versions of this starter served series and tags at `/series` and `/tags`; those addresses now answer with a 301 to the new ones.
 
 Then, on the same page:
 

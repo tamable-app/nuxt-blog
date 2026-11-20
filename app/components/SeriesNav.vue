@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { SeriesNav } from '@tamable/blog-kit'
+import { seriesPath } from '@tamable/blog-kit'
 
 defineProps<{ nav: SeriesNav }>()
 </script>
@@ -7,7 +8,7 @@ defineProps<{ nav: SeriesNav }>()
 <template>
   <nav aria-label="Series" class="series-nav">
     <p class="where">
-      <NuxtLink :to="`/series/${nav.slug}`">{{ nav.title }}</NuxtLink> · part {{ nav.number }} · {{ nav.total }} published
+      <NuxtLink :to="seriesPath(nav.slug)">{{ nav.title }}</NuxtLink> · part {{ nav.number }} · {{ nav.total }} published
     </p>
     <p v-if="nav.previous || nav.next" class="links">
       <NuxtLink v-if="nav.previous" :to="nav.previous.path" rel="prev">← {{ nav.previous.title }}</NuxtLink>

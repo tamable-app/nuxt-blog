@@ -2,7 +2,8 @@ import { defineNuxtModule, useLogger } from 'nuxt/kit'
 import site from '../site.config'
 import { buildRedirects, createTamableClient, redirectPaths, toPostSummary } from '@tamable/blog-kit'
 
-// At build time, turns Tamable's renamed posts (and Ghost's old addresses, if on) into 301 route rules,
+// At build time, turns Tamable's renamed posts, the old series and tag addresses (/series, /series/<slug>,
+// /tags/<tag>, from before they moved under /blog) and Ghost's old addresses, if on, into 301 route rules,
 // so the live server redirects without asking Tamable. Also refuses to build an empty blog.
 export default defineNuxtModule({
   meta: { name: 'redirects' },

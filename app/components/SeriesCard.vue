@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import type { SeriesSummary } from '@tamable/blog-kit'
+import { seriesPath } from '@tamable/blog-kit'
 
 defineProps<{ series: SeriesSummary }>()
 </script>
 
 <template>
-  <NuxtLink :to="`/series/${series.slug}`" class="series-card">
+  <NuxtLink :to="seriesPath(series.slug)" class="series-card">
     <span class="title">{{ series.title }}</span>
     <span v-if="series.description" class="description">{{ series.description }}</span>
     <span class="count">{{ series.postCount }} {{ series.postCount === 1 ? 'part' : 'parts' }}</span>

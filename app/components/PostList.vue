@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { PostSummary } from '@tamable/blog-kit'
-import { isoDay, monthDay, year } from '@tamable/blog-kit'
+import { isoDay, monthDay, tagPath, year } from '@tamable/blog-kit'
 
 const props = defineProps<{
   posts: PostSummary[]
@@ -48,7 +48,7 @@ function date(post: PostSummary) {
               {{ post.excerpt }}
             </p>
             <p v-if="showTags && post.tags.length" class="tags">
-              <NuxtLink v-for="tag in post.tags" :key="tag.slug" :to="`/tags/${tag.slug}`">
+              <NuxtLink v-for="tag in post.tags" :key="tag.slug" :to="tagPath(tag.slug)">
                 {{ tag.name }}
               </NuxtLink>
             </p>

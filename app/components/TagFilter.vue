@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { BLOG_PATH, tagPath } from '@tamable/blog-kit'
 import type { TagCount } from '~/composables/useContent'
 
 defineProps<{
@@ -10,13 +11,13 @@ defineProps<{
 
 <template>
   <nav aria-label="Tags" class="tag-filter">
-    <NuxtLink to="/blog" class="chip" :class="{ on: !current }" :aria-current="!current ? 'page' : undefined">
+    <NuxtLink :to="BLOG_PATH" class="chip" :class="{ on: !current }" :aria-current="!current ? 'page' : undefined">
       All · {{ total }}
     </NuxtLink>
     <NuxtLink
       v-for="tag in tags"
       :key="tag.slug"
-      :to="`/tags/${tag.slug}`"
+      :to="tagPath(tag.slug)"
       class="chip"
       :class="{ on: current === tag.slug }"
       :aria-current="current === tag.slug ? 'page' : undefined"
